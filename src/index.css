@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.productsCon {
+  width: 100%;
+  height: 90vh;
+}
+
+.productsCon img {
+  width: 20vh;
+  height: 20vh;
+}
