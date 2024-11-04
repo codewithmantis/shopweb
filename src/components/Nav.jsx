@@ -8,6 +8,7 @@ const Nav = () => {
     items.map((item) => {
       // Use toLowerCase for case-insensitive search
       if (item.name.toLowerCase().includes(search.toLowerCase())) {
+        console.log(item.id, item.name);
         return <p key={item.id}>{item.name}</p>; // Added a key for list items
       }
       return null; // Return null if the condition is not met
@@ -18,6 +19,7 @@ const Nav = () => {
     <nav>
       <ul>
         <input
+          placeholder="Search here.."
           onChange={(e) => {
             setSearch(e.target.value);
           }}
