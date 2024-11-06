@@ -13,8 +13,9 @@ const Nav = () => {
           (value) => typeof value === "string" && value.includes(search)
         )
       );
-      if (product) {
-        setFoundItems(product);
+
+      if (product && !foundItems.includes(product)) {
+        setFoundItems((prev) => [...prev, product]);
       }
     } else {
       setFoundItems([]);
@@ -32,9 +33,15 @@ const Nav = () => {
           value={search}
         />
         <button>Search</button>
-        {foundItems != "" && (
+        {foundItems.length >= 1 && (
           <div className="foundItems">
-            <Link to={`/product/${foundItems.id}`}>{foundItems.name}</Link>
+            {foundItems.map((item) => {
+              return (
+                <div key={item.id} className="foundItem">
+                  <Link to={`/product/${item.id}`}>{item.name}</Link>
+                </div>
+              );
+            })}
           </div>
         )}
       </ul>
